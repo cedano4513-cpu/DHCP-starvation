@@ -23,7 +23,7 @@ Crear un programa en Python usando la librería Scapy que permita simular, dentr
 - Router: R1  
 - Switch: SW1  
 - Host Atacante: Ubuntu Server  
-- Host Víctima: Windows 10  
+- Host Víctima: router  
 - Red basada en matrícula  
 
 Red utilizada:  
