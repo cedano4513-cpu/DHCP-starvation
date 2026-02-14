@@ -8,7 +8,7 @@ Matrícula: 2024-1404
 
 ## Video demostrativo
 
-[Ver video demostrativo] 
+[Ver video demostrativo] (https://youtu.be/XlFxx-4FgPU)
 
 ---
 
@@ -39,9 +39,6 @@ Red utilizada:
 
   ---
 
-### Diagrama de Topología
-![Diagrama de Topología] (Topologia.png)
-
 
 
 
@@ -51,7 +48,7 @@ Red utilizada:
 
 ## ⚙ Requisitos
 
-- Python 3  
+- Python   
 - Scapy  
 - Permisos root  
 - Entorno virtualizado (VMware / PnetLab)  
@@ -68,45 +65,45 @@ pip install scapy
 
 ## 🚀 Ejecución del Script
 
-Desde la máquina atacante (Kali Linux):
+Desde la máquina atacante (ubuntu server):
 
 ```bash
-sudo python3 starvation.py 
+sudo python dhcp_starvation.py 
 ```
 
 ---
 
 ## 🔍 Funcionamiento del Script
 
-El script genera múltiples direcciones MAC aleatorias y envía paquetes DHCP Discover al servidor DHCP.
-
-Cada solicitud simula un cliente diferente dentro de la red.
-
-El servidor DHCP responde asignando direcciones IP hasta que el pool disponible se agota.
-
-Cuando el pool se llena, los dispositivos legítimos ya no pueden obtener una dirección IP válida, provocando una denegación de servicio (DoS).
+El programa crea varias direcciones MAC falsas de manera aleatoria y envía solicitudes DHCP Discover al servidor DHCP.
+Cada petición aparenta provenir de un equipo distinto dentro de la red.
+El servidor comienza a entregar direcciones IP a estas supuestas máquinas hasta que se terminan las disponibles en su rango de asignación.
+Una vez agotado el pool, los equipos reales no logran recibir una IP válida, lo que ocasiona una interrupción del servicio (ataque de denegación de servicio o DoS).
 
 ---
 
 ## 📊 Resultados Obtenidos
 
-- Se enviaron múltiples solicitudes DHCP Discover.
-- El servidor asignó direcciones IP a clientes falsos.
-- El pool DHCP se saturó.
-- El equipo víctima no pudo obtener dirección IP.
+-Se generaron numerosas peticiones DHCP Discover.
+
+-El servidor comenzó a otorgar direcciones IP a equipos simulados.
+
+-El rango de direcciones disponible en el DHCP se llenó.
+
+-El equipo legítimo no consiguió recibir una dirección IP.
 
 ---
 
 ## 🛡 Medidas de Mitigación
 
-Para prevenir este tipo de ataque se pueden implementar:
+Para evitar este tipo de incidente pueden aplicarse las siguientes prácticas:
 
-- DHCP Snooping
-- Port Security en switches
-- Limitación de solicitudes DHCP por puerto
-- Monitoreo de tráfico anómalo
-- Segmentación de red
+-Activar DHCP Snooping.
 
----
+-Configurar seguridad de puertos (Port Security) en los switches.
 
-⚠ Este laboratorio fue realizado únicamente en un entorno controlado con fines académicos.
+-Establecer un límite de solicitudes DHCP por cada puerto.
+
+-Vigilar el tráfico en busca de comportamientos inusuales.
+
+
