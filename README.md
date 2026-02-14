@@ -18,7 +18,7 @@ Crear un programa en Python usando la librería Scapy que permita simular, dentr
 
 ---
 
-## 🖥 Topología del Laboratorio
+## 🖥 Topología del Laboratorio 
 
 - Router: R1  
 - Switch: SW1  
@@ -40,7 +40,7 @@ Red utilizada:
   ---
 
 ### Diagrama de Topología
-![Diagrama de Topología] 
+![Diagrama de Topología] (Topologia.png)
 
 
 
